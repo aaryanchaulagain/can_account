@@ -1,11 +1,22 @@
 <header class="sticky top-0 z-50 bg-white/95 backdrop-blur border-b border-slate-200">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex items-center justify-between h-20">
-            <a href="{{ route('home') }}" class="flex items-center gap-3 shrink-0">
-                <span class="font-serif text-2xl font-semibold text-navy-900">Canberra<span class="text-gold-500"> Accountants</span></span>
+        <div class="flex items-stretch justify-between h-20">
+            <a
+                href="{{ route('home') }}"
+                class="flex h-full w-40 sm:w-48 lg:w-52 shrink-0 items-center py-2.5 pr-3 sm:pr-4"
+                aria-label="Canberra Accountants — Home"
+            >
+                <img
+                    src="{{ asset('images/logo.png') }}?v=5"
+                    alt="Canberra Accountants"
+                    class="h-full w-full max-h-[3.25rem] object-contain object-left"
+                    width="208"
+                    height="52"
+                    fetchpriority="high"
+                >
             </a>
 
-            <div class="hidden lg:flex items-center flex-1 justify-end gap-8 ml-8">
+            <div class="hidden lg:flex items-center flex-1 justify-end gap-6 xl:gap-8 min-w-0 ml-2">
                 <nav class="flex items-center gap-6 xl:gap-8 text-sm font-medium text-navy-800">
                     <a href="{{ route('about') }}" class="hover:text-gold-600 transition whitespace-nowrap">About Us</a>
                     <div class="relative" @mouseenter="servicesOpen = true" @mouseleave="servicesOpen = false">

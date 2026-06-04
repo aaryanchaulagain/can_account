@@ -4,6 +4,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
+    <link rel="icon" type="image/png" href="{{ asset('images/favicon.png') }}?v=5">
+    <link rel="apple-touch-icon" href="{{ asset('images/favicon.png') }}?v=5">
     <title>@yield('title', 'Admin') | Canberra Accountants</title>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
@@ -11,7 +13,10 @@
     <div class="flex min-h-screen">
         <aside class="relative z-50 w-64 min-h-screen bg-navy-950 text-slate-300 shrink-0 flex flex-col pointer-events-auto">
             <div class="p-6 border-b border-navy-800">
-                <a href="{{ route('admin.dashboard') }}" class="text-white font-serif text-lg hover:text-gold-400 transition">CA Admin</a>
+                <a href="{{ route('admin.dashboard') }}" class="flex items-center gap-3 hover:opacity-90 transition" aria-label="Admin dashboard">
+                    <img src="{{ asset('images/favicon.png') }}?v=5" alt="" class="h-9 w-auto max-w-[2.75rem] object-contain" width="44" height="36">
+                    <span class="text-white font-serif text-lg">Admin</span>
+                </a>
             </div>
             <nav class="p-4 space-y-1 text-sm flex-1 relative z-10">
                 @php

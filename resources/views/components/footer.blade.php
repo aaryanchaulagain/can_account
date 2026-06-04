@@ -2,7 +2,17 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-12">
             <div>
-                <p class="font-serif text-2xl text-white mb-4">Canberra Accountants</p>
+                <a href="{{ route('home') }}" class="inline-flex items-center gap-3 mb-4 group">
+                    <img
+                        src="{{ asset('images/favicon.png') }}?v=5"
+                        alt=""
+                        class="h-9 w-auto max-w-[7rem] object-contain shrink-0"
+                        width="112"
+                        height="36"
+                        loading="lazy"
+                    >
+                    <span class="font-serif text-xl text-white group-hover:text-gold-400 transition">Canberra Accountants</span>
+                </a>
                 <p class="text-sm leading-relaxed">Premium accounting, taxation and advisory services across Australia.</p>
                 <p class="mt-4 text-xs text-slate-400">ABN: {{ $siteSettings['abn'] ?? '76 676 815 080' }}</p>
                 <p class="text-xs text-slate-400">Tax Agent: {{ $siteSettings['tax_agent'] ?? '26258136' }}</p>
