@@ -3,15 +3,14 @@
 namespace App\Listeners;
 
 use App\Events\ContactFormSubmitted;
-use App\Mail\ContactFormNotification;
-use Illuminate\Support\Facades\Mail;
+use App\Services\ContactNotificationService;
 
 class SendContactNotification
 {
+    public function __construct(protected ContactNotificationService $notifications) {}
+
     public function handle(ContactFormSubmitted $event): void
     {
-        $email = config('mail.contact_to', config('mail.from.address'));
-
-        Mail::to($email)->send(new ContactFormNotification($event->submission));
+        $this->notifications->notifyAdmin($event->submission);
     }
 }

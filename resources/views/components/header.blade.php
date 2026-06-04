@@ -3,15 +3,15 @@
         <div class="flex items-stretch justify-between h-20">
             <a
                 href="{{ route('home') }}"
-                class="flex h-full w-40 sm:w-48 lg:w-52 shrink-0 items-center py-2.5 pr-3 sm:pr-4"
+                class="flex h-full w-32 sm:w-36 lg:w-40 shrink-0 items-center py-1.5 pr-3 sm:pr-4"
                 aria-label="Canberra Accountants — Home"
             >
                 <img
-                    src="{{ asset('images/logo.png') }}?v=5"
-                    alt="Canberra Accountants"
-                    class="h-full w-full max-h-[3.25rem] object-contain object-left"
-                    width="208"
-                    height="52"
+                    src="{{ asset('images/logo.png') }}?v=6"
+                    alt="Canberra Accountants — Tax, CFO Advisory, SMSF"
+                    class="h-full w-full max-h-[4.75rem] object-contain object-left"
+                    width="160"
+                    height="76"
                     fetchpriority="high"
                 >
             </a>

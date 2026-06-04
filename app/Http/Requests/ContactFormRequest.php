@@ -11,9 +11,17 @@ class ContactFormRequest extends FormRequest
         return true;
     }
 
+    protected function prepareForValidation(): void
+    {
+        $this->merge([
+            'form_type' => 'contact',
+        ]);
+    }
+
     public function rules(): array
     {
         return [
+            'form_type' => ['required', 'in:contact'],
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'email', 'max:255'],
             'phone' => ['nullable', 'string', 'max:50'],

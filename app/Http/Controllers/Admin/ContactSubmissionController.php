@@ -64,7 +64,19 @@ class ContactSubmissionController extends Controller
             return back()->with('error', 'This submission is already approved.');
         }
 
-        $this->contactSubmissions->approve($contact);
+        try {
+            $this->contactSubmissions->approve($contact);
+        } catch (\Throwable $e) {
+            report($e);
+
+            $message = 'Could not send the confirmation email. The submission was not marked approved — please check mail settings in .env and try again.';
+
+            if (config('app.debug')) {
+                $message .= ' Error: '.$e->getMessage();
+            }
+
+            return back()->with('error', $message);
+        }
 
         return back()->with('success', "Approved successfully. A confirmation email was sent to {$contact->email}.");
     }

@@ -18,7 +18,7 @@ return new class extends Migration
             $table->text('message');
             $table->string('ip_address', 45)->nullable();
             $table->string('user_agent')->nullable();
-            $table->enum('status', ['new', 'read', 'replied', 'archived'])->default('new');
+            $table->enum('status', ['new', 'read', 'replied', 'archived', 'approved'])->default('new');
             $table->timestamp('read_at')->nullable();
             $table->timestamps();
 

@@ -4,9 +4,9 @@
             <div>
                 <a href="{{ route('home') }}" class="inline-flex items-center gap-3 mb-4 group">
                     <img
-                        src="{{ asset('images/favicon.png') }}?v=5"
+                        src="{{ asset('images/logo.png') }}?v=6"
                         alt=""
-                        class="h-9 w-auto max-w-[7rem] object-contain shrink-0"
+                        class="h-10 w-auto max-w-[8.5rem] object-contain shrink-0"
                         width="112"
                         height="36"
                         loading="lazy"

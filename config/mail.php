@@ -11,6 +11,7 @@ return [
             'url' => env('MAIL_URL'),
             'host' => env('MAIL_HOST', '127.0.0.1'),
             'port' => env('MAIL_PORT', 2525),
+            'encryption' => env('MAIL_ENCRYPTION', 'tls'),
             'username' => env('MAIL_USERNAME'),
             'password' => env('MAIL_PASSWORD'),
             'timeout' => null,
@@ -28,5 +29,13 @@ return [
     ],
 
     'contact_to' => env('MAIL_CONTACT_TO', 'info@canberraaccountants.com.au'),
+
+    /*
+    |--------------------------------------------------------------------------
+    | Logo URL (emails)
+    |--------------------------------------------------------------------------
+    | Must be a full public URL so Gmail/Outlook can load the image.
+    */
+    'logo_url' => env('MAIL_LOGO_URL'),
 
 ];

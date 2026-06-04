@@ -10,13 +10,18 @@
 
 <section class="py-20 max-w-7xl mx-auto px-4">
     @if(session('success'))
-        <div class="mb-8 p-4 bg-green-50 border border-green-200 text-green-800 rounded-lg">{{ session('success') }}</div>
+        <div class="mb-8 p-4 bg-green-50 border border-green-200 text-green-800 rounded-lg">
+            {{ session('success') }}
+            <span class="block mt-1 text-sm text-green-700">We will email you a confirmation after our team reviews your request.</span>
+        </div>
     @endif
 
     <div class="grid lg:grid-cols-2 gap-16">
         <form id="consultation-form" action="{{ route('contact.store') }}" method="POST" class="space-y-6 scroll-mt-28">
             @csrf
+            <input type="hidden" name="form_type" value="contact">
             <input type="text" name="website" class="hidden" tabindex="-1" autocomplete="off">
+            <p class="text-sm text-slate-600">Book a consultation with our team. You will receive a confirmation email once we have reviewed your request.</p>
             <div>
                 <label class="block text-sm font-medium text-navy-900 mb-1">Name *</label>
                 <input type="text" name="name" value="{{ old('name') }}" required class="w-full rounded-lg border-slate-300 focus:border-gold-500 focus:ring-gold-500">
@@ -51,7 +56,7 @@
                 <textarea name="message" rows="5" required class="w-full rounded-lg border-slate-300">{{ old('message') }}</textarea>
                 @error('message')<p class="text-red-600 text-sm mt-1">{{ $message }}</p>@enderror
             </div>
-            <button type="submit" class="px-8 py-3 bg-navy-900 text-white font-semibold rounded-lg hover:bg-navy-800 transition">Send Message</button>
+            <button type="submit" class="px-8 py-3 bg-navy-900 text-white font-semibold rounded-lg hover:bg-navy-800 transition">Book Consultation</button>
         </form>
 
         <div>

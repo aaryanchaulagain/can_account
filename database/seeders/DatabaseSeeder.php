@@ -39,7 +39,7 @@ class DatabaseSeeder extends Seeder
             ['email' => 'admin@canberraaccountants.com.au'],
             [
                 'name' => 'Super Admin',
-                'password' => Hash::make('ChangeMe123!'),
+                'password' => Hash::make('admin@1234'),
                 'role_id' => $superAdminRole->id,
                 'is_active' => true,
             ]

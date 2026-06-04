@@ -31,6 +31,6 @@ class ContactController extends Controller
     {
         $this->contactService->submit($request->validated(), $request);
 
-        return back()->with('success', 'Thank you for your message. Our team will be in touch shortly.');
+        return back()->with('success', 'Thank you! Your consultation request has been submitted successfully.');
     }
 }

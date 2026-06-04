@@ -2,26 +2,33 @@
 
 namespace App\Services;
 
-use App\Mail\ContactSubmissionApproved;
 use App\Models\ContactSubmission;
-use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\DB;
 
 class ContactSubmissionService
 {
+    public function __construct(protected ContactNotificationService $notifications) {}
+
     public function approve(ContactSubmission $submission): ContactSubmission
     {
         if ($submission->status === 'approved') {
             return $submission;
         }
 
-        $submission->update([
-            'status' => 'approved',
-            'approved_at' => now(),
-            'read_at' => $submission->read_at ?? now(),
-        ]);
+        return DB::transaction(function () use ($submission) {
+            $submission->update([
+                'status' => 'approved',
+                'approved_at' => now(),
+                'read_at' => $submission->read_at ?? now(),
+            ]);
 
-        Mail::to($submission->email)->send(new ContactSubmissionApproved($submission->fresh()));
+            $fresh = $submission->fresh();
 
-        return $submission->fresh();
+            if ($fresh->form_type === 'contact') {
+                $this->notifications->notifyClientApproved($fresh);
+            }
+
+            return $fresh;
+        });
     }
 }
