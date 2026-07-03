@@ -14,7 +14,8 @@
         </p>
         <div class="mt-10 flex flex-wrap gap-4 relative z-10">
             <a href="{{ route('contact') }}#consultation-form" class="relative z-10 inline-flex items-center px-8 py-3.5 bg-gold-500 text-navy-950 font-semibold rounded hover:bg-gold-400 transition cursor-pointer">Book Consultation</a>
-            <a href="{{ route('contact') }}" class="relative z-10 inline-flex items-center px-8 py-3.5 border border-white/30 text-white font-semibold rounded hover:bg-white/10 transition cursor-pointer">Contact Us</a>
+            <a href="{{ route('forms.tax-return') }}" class="relative z-10 inline-flex items-center px-8 py-3.5 border border-white/30 text-white font-semibold rounded hover:bg-white/10 transition cursor-pointer">Tax Return Form</a>
+            <a href="{{ route('forms.business') }}" class="relative z-10 inline-flex items-center px-8 py-3.5 border border-white/30 text-white font-semibold rounded hover:bg-white/10 transition cursor-pointer">Business Form</a>
         </div>
     </div>
 </section>

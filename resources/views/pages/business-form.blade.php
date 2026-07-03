@@ -26,10 +26,10 @@
     box-sizing: border-box;
 }
 
-/* HERO */
+/* HERO FORM SECTION (form at top) */
 .business-legacy-page .business-hero {
     position: relative;
-    padding: 120px 20px 80px;
+    padding: 120px 20px 40px;
     overflow: hidden;
 }
 
@@ -55,6 +55,19 @@
     border-radius: 50%;
     background: #06b6d425;
     filter: blur(120px);
+}
+
+.business-legacy-page .business-hero .form-section {
+    padding: 0;
+    position: relative;
+    z-index: 2;
+}
+
+/* INFO SECTION (previous hero content, below form) */
+.business-legacy-page .business-info {
+    position: relative;
+    padding: 40px 20px 0;
+    overflow: hidden;
 }
 
 .business-legacy-page .business-container {
@@ -326,6 +339,11 @@
 @media (max-width: 768px) {
     .business-legacy-page .business-hero {
         padding-top: 90px;
+        padding-bottom: 20px;
+    }
+
+    .business-legacy-page .business-info {
+        padding-top: 20px;
     }
 
     .business-legacy-page .hero-title {
@@ -367,7 +385,13 @@
 
 @section('content')
 <div class="business-legacy-page">
+    {{-- Form at top (hero position) --}}
     <section class="business-hero">
+        <x-business-form-section />
+    </section>
+
+    {{-- Previous hero content (below form) --}}
+    <section class="business-info">
         <div class="business-container">
             <div class="hero-grid">
                 <div>
@@ -453,7 +477,5 @@
             <a href="#businessform" class="service-link">Business Engagement Form</a>
         </div>
     </section>
-
-    <x-business-form-section />
 </div>
 @endsection

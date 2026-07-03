@@ -28,10 +28,10 @@
     box-sizing: border-box;
 }
 
-/* HERO SECTION */
+/* HERO FORM SECTION (form at top) */
 .tax-legacy-page .tax-hero {
     position: relative;
-    padding: 120px 20px 80px;
+    padding: 120px 20px 40px;
     overflow: hidden;
 }
 
@@ -57,6 +57,12 @@
     background: #06b6d430;
     filter: blur(100px);
     border-radius: 50%;
+}
+
+.tax-legacy-page .tax-hero .form-section {
+    padding: 0;
+    position: relative;
+    z-index: 2;
 }
 
 .tax-legacy-page .tax-container {
@@ -205,6 +211,13 @@
     line-height: 1.7;
 }
 
+/* INFO SECTION (previous hero content, below form) */
+.tax-legacy-page .tax-info {
+    position: relative;
+    padding: 40px 20px 120px;
+    overflow: hidden;
+}
+
 /* FORM SECTION */
 .tax-legacy-page .form-section {
     padding: 40px 20px 120px;
@@ -299,6 +312,11 @@
 @media (max-width: 768px) {
     .tax-legacy-page .tax-hero {
         padding-top: 90px;
+        padding-bottom: 20px;
+    }
+
+    .tax-legacy-page .tax-info {
+        padding-bottom: 80px;
     }
 
     .tax-legacy-page .tax-heading {
@@ -340,7 +358,13 @@
 
 @section('content')
 <div class="tax-legacy-page">
+    {{-- Form at top (hero position) --}}
     <section class="tax-hero">
+        <x-tax-return-form-section />
+    </section>
+
+    {{-- Previous hero content (below form) --}}
+    <section class="tax-info">
         <div class="tax-container">
             <div class="hero-grid">
                 <div>
@@ -413,7 +437,5 @@
             </div>
         </div>
     </section>
-
-    <x-tax-return-form-section />
 </div>
 @endsection
